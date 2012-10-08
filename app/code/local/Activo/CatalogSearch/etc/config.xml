@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+      <models>
+        <catalogsearch_mysql4>
+          <rewrite>
+            <fulltext>Activo_CatalogSearch_Model_Mysql4_Fulltext</fulltext>
+          </rewrite>
+        </catalogsearch_mysql4>
+      </models>
+	</global>		
+</config>

@@ -1,0 +1,5 @@
+<?php
+	class Briel_Inlineedit_Block_Adminhtml_Widget_Grid_Column_Renderer_RenderTest extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
+	{
+		
+	}

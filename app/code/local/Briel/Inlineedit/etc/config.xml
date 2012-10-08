@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Briel_Inlineedit>
+            <version>0.1.0</version>
+        </Briel_Inlineedit>
+    </modules>
+     <global>
+        <blocks>
+        	<adminhtml>
+                <rewrite>
+                    <widget_grid_column_renderer_input>Briel_Inlineedit_Block_Adminhtml_Widget_Grid_Column_Renderer_Inline</widget_grid_column_renderer_input>
+                    <widget_grid_column_renderer_input>Briel_Inlineedit_Block_Adminhtml_Widget_Grid_Column_Renderer_Qty</widget_grid_column_renderer_input>
+                    <widget_grid_column_renderer_input>Briel_Inlineedit_Block_Adminhtml_Widget_Grid_Column_Renderer_Date</widget_grid_column_renderer_input>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <helpers>
+            <inlineedit>
+                <class>Briel_Inlineedit_Helper</class>
+            </inlineedit>
+        </helpers>
+    </global>
+	 <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Briel_Inlineedit before="Mage_Adminhtml">Briel_Inlineedit</Briel_Inlineedit>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

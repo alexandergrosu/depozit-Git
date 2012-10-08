@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Briel_SendEmailOrdersCsv>
+            <version>0.1.0</version>
+        </Briel_SendEmailOrdersCsv>
+    </modules>
+    <global>
+        <models>
+            <sendemailorderscsv>
+                <class>Briel_SendEmailOrdersCsv_Model</class>
+            </sendemailorderscsv>
+        </models>
+    </global>
+    
+     <crontab>
+        <jobs>
+            <send_email_orders_csv>
+                <schedule>
+                	<cron_expr>0,15,30,45 * * * *</cron_expr>
+                </schedule>
+                <run>
+                	<model>sendemailorderscsv/cron::csvEmail</model>
+                </run>
+            </send_email_orders_csv>
+        </jobs>
+    </crontab>
+</config>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<default>
+    <carriers>
+        <ugshipping>
+            <active>1</active>
+            <model>urgentshipping/carrier_ugshipping</model>
+            <title>Curier rapid</title>
+            <name>Curier rapid</name>
+            <price>0.00</price>
+            <specificerrmsg>Momentan, aceasta metoda de livrare nu este disponibila!</specificerrmsg>
+        </ugshipping>
+    </carriers>
+</default>
+
+	<modules>
+		<UrgentCurier_UrgentShipping>
+			<version>0.1.0</version>
+		</UrgentCurier_UrgentShipping>
+	</modules>
+    
+	<global>
+        <helpers>
+            <urgentshipping>
+                <class>UrgentCurier_UrgentShipping_Helper</class>
+            </urgentshipping>  
+        </helpers>
+        <models>
+            <urgentshipping>
+                <class>UrgentCurier_UrgentShipping_Model</class>
+            </urgentshipping>
+        </models>
+        <resources>
+            <urgentshipping_setup>
+                <setup>
+                    <module>UrgentCurier_UrgentShipping</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </urgentshipping_setup>
+            <urgentshipping_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </urgentshipping_write>
+            <urgentshipping_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </urgentshipping_read>
+        </resources>
+        <fieldsets>
+            <sales_copy_order_billing_address>
+                <citycode><to_order>*</to_order></citycode>
+            </sales_copy_order_billing_address>
+            <sales_copy_order_shipping_address>
+                <citycode><to_order>*</to_order></citycode>
+            </sales_copy_order_shipping_address>
+            <sales_convert_quote_address>
+                <citycode><to_order_address>*</to_order_address><to_customer_address>*</to_customer_address></citycode>
+            </sales_convert_quote_address>
+            <sales_convert_order_address>
+                <citycode><to_quote_address>*</to_quote_address></citycode>
+            </sales_convert_order_address>
+            <customer_address>
+                 <citycode><to_quote_address>*</to_quote_address></citycode>
+            </customer_address>
+            <checkout_onepage_billing>
+                <citycode><to_customer>*</to_customer></citycode>
+            </checkout_onepage_billing>
+        </fieldsets>
+	</global>
+    
+    <admin>
+        <routers>
+            <urgentshipping>
+                <use>admin</use>
+                <args>
+                    <module>UrgentCurier_UrgentShipping</module>
+                    <frontName>urgentshipping</frontName>
+                </args>
+            </urgentshipping>
+        </routers>
+        <fieldsets>
+            <customer_dataflow>
+                <citycode><billing>1</billing><shipping>1</shipping></citycode>
+            </customer_dataflow>
+        </fieldsets>
+    </admin>
+    
+	<frontend>
+		<layout>
+			<updates>
+				<urgentshipping>
+					<file>urgentshipping.xml</file>
+				</urgentshipping>
+			</updates>
+		</layout>
+	</frontend>
+    
+    <adminhtml>
+        <menu>
+            <urgent translate="title" module="urgentshipping">
+                <title>Urgent Curier</title>
+                <sort_order>200</sort_order>
+                <children>
+                    <urgentshipping_adminform translate="title" module="urgentshipping">
+                        <title>Livrari curente</title>
+                        <action>urgentshipping/adminhtml_index</action>
+                    </urgentshipping_adminform>
+                    <urgentshipping2_adminform translate="title" module="urgentshipping">
+                        <title>Istoric livrari</title>
+                        <action>urgentshipping/adminhtml_istoric</action>
+                    </urgentshipping2_adminform>
+                    <urgentshipping3_adminform translate="title" module="urgentshipping">
+                        <title>Puncte de ridicare</title>
+                        <action>urgentshipping/adminhtml_puncte</action>
+                    </urgentshipping3_adminform>
+                    <urgentshipping4_adminform translate="title" module="urgentshipping">
+                        <title>Setari</title>
+                        <children>
+                            <urgentshipping5_adminform translate="title" module="urgentshipping">
+                                <title>Preferinte</title>
+                                <action>urgentshipping/adminhtml_preferinte</action>
+                            </urgentshipping5_adminform>
+                            <urgentshipping6_adminform translate="title" module="urgentshipping">
+                                <title>Configurare</title>
+                                <action>urgentshipping/adminhtml_config</action>
+                            </urgentshipping6_adminform>
+                        </children>
+                    </urgentshipping4_adminform>
+                </children>
+            </urgent>
+        </menu>
+        <layout>
+			<updates>
+				<urgentshipping>
+					<file>urgentshippingadmin.xml</file>
+				</urgentshipping>
+			</updates>
+		</layout>
+	</adminhtml>
+	<adminhtml>
+		<acl>
+<resources>
+<admin>
+<children>
+<urgent translate="title" module="urgentshipping">
+<title>Urgent Curier</title>
+<sort_order>200</sort_order>
+<children>
+<urgentshipping_adminform translate="title" module="urgentshipping">
+<title>Livrari curente</title>
+<action>urgentshipping/adminhtml_index</action>
+</urgentshipping_adminform>
+<urgentshipping2_adminform translate="title" module="urgentshipping">
+<title>Istoric livrari</title>
+<action>urgentshipping/adminhtml_istoric</action>
+</urgentshipping2_adminform>
+<urgentshipping3_adminform translate="title" module="urgentshipping">
+<title>Puncte de ridicare</title>
+<action>urgentshipping/adminhtml_puncte</action>
+</urgentshipping3_adminform>
+<urgentshipping4_adminform translate="title" module="urgentshipping">
+<title>Setari</title>
+<children>
+<urgentshipping5_adminform translate="title" module="urgentshipping">
+<title>Preferinte</title>
+<action>urgentshipping/adminhtml_preferinte</action>
+</urgentshipping5_adminform>
+<urgentshipping6_adminform translate="title" module="urgentshipping">
+<title>Configurare</title>
+<action>urgentshipping/adminhtml_config</action>
+</urgentshipping6_adminform>
+</children>
+</urgentshipping4_adminform>
+</children>
+</urgent>
+</children>
+</admin>
+</resources>
+</acl>
+	</adminhtml>
+</config>
